@@ -44,7 +44,7 @@ const Todo = () => {
     const updatedTodo = onProgress.filter((todo) => todo !== value);
     console.log('updatedtodo', updatedTodo);
     setonProgress(updatedTodo)
-    console.log(onprogress);
+    console.log(onProgress);
     }
 
   const moveOnProgress = async (title) => {
@@ -61,21 +61,22 @@ const Todo = () => {
     }
   }
 
-  const BackMoveOnTodo = async (title) => {
+  const BackMoveOnTodo = (title) => {
     console.log(title)
     if(title) {
       const updatedProgress = onProgress.filter((progress ) => progress !== title)
       setonProgress(updatedProgress)
-      setTodos([...set, title])
+      setTodos([...todos, { title : title}])
     }
-  }
+  };
 
   const BackMoveOnProgress = async (value) => {
     if(value){
       const updatedSet = set.filter((item)=> item !== value)
-      setTodos(updatedSet)
-      setonProgress([...set,value])
-       }
+      onSet(updatedSet)
+      setonProgress([...onProgress,value]);
+      
+      }
   }
 
   return (
